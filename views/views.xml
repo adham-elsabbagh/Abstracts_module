@@ -1,126 +1,127 @@
 <odoo>
-  <data>
-    <record id="screen_items_form" model="ir.ui.view">
-        <field name="name">Screen Items</field>
-        <field name="model">screen.items</field>
-        <field name="arch" type="xml">
-            <form string="">
-                <sheet>
-                    <group>
-                        <field name="item_name"/>
-                        <field name="item_description"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+    <data>
+        <record id="screen_items_form" model="ir.ui.view">
+            <field name="name">Screen Items</field>
+            <field name="model">screen.items</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="item_name"/>
+                            <field name="item_description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record id="screen_contract_form" model="ir.ui.view">
-        <field name="name">Screen Contract</field>
-        <field name="model">screen.contract</field>
-        <field name="arch" type="xml">
-            <form string="">
-                <sheet>
-                    <group>
-                        <field name="contract_name"/>
-                        <field name="date_from"/>
-                        <field name="date_to"/>
-                        <field name="user_id"/>
-                    </group>
-                    <notebook>
-                        <page string="Items">
-                        <field name="item_ids">
-                            <form>
-                                <field name="item_id"/>
-                                <field name="req_quantity" string="Required quantity"/>
-                                <field name="price"/>
-                                <field name="total_price"/>
-                            </form>
-                            <tree editable="buttom">
-                                <field name="item_id"/>
-                                <field name="req_quantity" string="Required quantity"/>
-                                <field name="price"/>
-                                <field name="total_price"/>
-                            </tree>
+        <record id="screen_contract_form" model="ir.ui.view">
+            <field name="name">Screen Contract</field>
+            <field name="model">screen.contract</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="contract_name"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="user_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Items">
+                                <field name="item_ids">
+                                    <form>
+                                        <field name="item_id"/>
+                                        <field name="req_quantity" string="Required quantity"/>
+                                        <field name="price"/>
+                                        <field name="total_price"/>
+                                    </form>
+                                    <tree editable="buttom">
+                                        <field name="item_id"/>
+                                        <field name="req_quantity" string="Required quantity"/>
+                                        <field name="price"/>
+                                        <field name="total_price"/>
+                                    </tree>
 
-                        </field>
-                        </page>
-                    </notebook>
-                    <group>
-                        <field name="amount_total"/>
-                    </group>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="amount_total"/>
+                        </group>
 
-                </sheet>
-            </form>
-        </field>
-    </record>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record id="screen_abstract_form" model="ir.ui.view">
-        <field name="name">Screen Abstract</field>
-        <field name="model">screen.abstract</field>
-        <field name="arch" type="xml">
-            <form string="">
-                <sheet>
-                    <group>
-                        <field name="contract_id"/>
-                    </group>
-                    <notebook>
-                        <page string="Abstract">
-                        <field name="contract_ids">
-                            <form>
-                                <field name="item_id"/>
-                                <field name="pre_quantity" string="previous quantity"/>
-                                <field name="exec_quantity" string="Executed quantity"/>
-                                <field name="price"/>
-                                <field name="total_price"/>
-                            </form>
-                            <tree editable="buttom">
-                                <field name="item_id"/>
-                                <field name="pre_quantity" string="previous quantity"/>
-                                <field name="exec_quantity" string="Executed quantity"/>
-                                <field name="price"/>
-                                <field name="total_price"/>
-                            </tree>
+        <record id="screen_abstract_form" model="ir.ui.view">
+            <field name="name">Screen Abstract</field>
+            <field name="model">screen.abstract</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="contract_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Abstract">
+                                <field name="contract_ids">
+                                    <form>
+                                        <field name="item_id"/>
+                                        <field name="pre_quantity" string="previous quantity"/>
+                                        <field name="exec_quantity" string="Executed quantity"/>
+                                        <field name="price"/>
+                                        <field name="total_price"/>
+                                    </form>
+                                    <tree editable="buttom">
+                                        <field name="item_id"/>
+                                        <field name="req_quantity"/>
+                                        <field name="pre_quantity" string="previous quantity"/>
+                                        <field name="exec_quantity" string="Executed quantity"/>
+                                        <field name="price"/>
+                                        <field name="total_price"/>
+                                    </tree>
 
-                        </field>
-                        </page>
-                    </notebook>
-                    <group>
-                        <field name="amount_total"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="amount_total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record id="view_screen_items_tree" model="ir.ui.view">
-        <field name="name">screen.items.tree</field>
-        <field name="model">screen.items</field>
-        <field name="arch" type="xml">
-            <tree string="">
-                <field name="item_name"/>
-            </tree>
-        </field>
-    </record>
-    <record id="view_screen_contract_tree" model="ir.ui.view">
-        <field name="name">screen.contract.tree</field>
-        <field name="model">screen.contract</field>
-        <field name="arch" type="xml">
-            <tree string="">
-                <field name="contract_name"/>
-                <field name="amount_total"/>
-            </tree>
-        </field>
-    </record>
-    <record id="view_screen_abstract_tree" model="ir.ui.view">
-        <field name="name">screen.abstract.tree</field>
-        <field name="model">screen.abstract</field>
-        <field name="arch" type="xml">
-            <tree string="">
-                <field name="contract_id"/>
-            </tree>
-        </field>
-    </record>
+        <record id="view_screen_items_tree" model="ir.ui.view">
+            <field name="name">screen.items.tree</field>
+            <field name="model">screen.items</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="item_name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_screen_contract_tree" model="ir.ui.view">
+            <field name="name">screen.contract.tree</field>
+            <field name="model">screen.contract</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="contract_name"/>
+                    <field name="amount_total"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_screen_abstract_tree" model="ir.ui.view">
+            <field name="name">screen.abstract.tree</field>
+            <field name="model">screen.abstract</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="contract_id"/>
+                </tree>
+            </field>
+        </record>
 
-  </data>
+    </data>
 </odoo>
